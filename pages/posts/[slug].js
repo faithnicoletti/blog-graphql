@@ -1,6 +1,5 @@
-import styles from '../../styles/Slug.module.css';
 import {GraphQLClient, gql} from 'graphql-request';
-
+import Format from '../../layout/format';
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cll6qjzv804qm01um9wvpgn63/master"
@@ -60,21 +59,30 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function BlogPost({post}){
-    return(
-        <main className={styles.blog}>
-            <img src={post.coverPhoto.url} className={styles.cover} alt="" />
-            <div className={styles.title}>
-                <img src={post.author.avatar.url} alt="" />
-                <div className={styles.authtext}>
-                    <h6> By {post.author.name}</h6>
-                    <h6 className={styles.date}>{post.datePublished}</h6>
+
+export default function BlogPost({ post }) {
+    return (
+        <Format>
+            <div className="px-5 py-8 md:px-20">
+                <div className="flex items-center justify-between mb-5">
+                    <div className="w-1/2 pr-5">
+                        <p className="text-3xl md:text-5xl font-bold text-gray-600">{post.title}</p>
+                    </div>
+                    <div className="w-1/2">
+                        <img src={post.coverPhoto.url} alt="" className="mx-auto" width={400} height={400} />
+                    </div>
+                </div>
+                <div className="text-gray-500 py-8">
+                    <p dangerouslySetInnerHTML={{ __html: post.content.html }}></p>
+                </div>
+                <div className="flex items-center py-5">
+                    <img src={post.author.avatar.url} width={60} height={60} className="rounded-full mr-4" />
+                    <h1 className="text-md font-bold text-gray-800">{post.author.name}</h1>
+                </div>
+                <div className="text-cleft text-orange-600 py-1">
+                    <p>Published {post.datePublished}</p>
                 </div>
             </div>
-            <h2>{post.title}</h2>
-            <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content.html }}>
-            </div>
-        </main>
-    )
-
+        </Format>
+    );
 }
