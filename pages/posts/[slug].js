@@ -1,7 +1,5 @@
 import {GraphQLClient, gql} from 'graphql-request';
 import Format from '../../layout/format';
-import { useRouter } from 'next/router'
-import { Loader } from '../../components/Loader';
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cll6qjzv804qm01um9wvpgn63/master"
@@ -45,7 +43,7 @@ export async function getStaticPaths() {
     const {posts} = await graphcms.request(SLUGLIST);
     return{
         paths: posts.map((post) => ({ params: { slug: post.slug } })),
-        fallback: true, 
+        fallback: false, 
     };
 }
 
@@ -63,11 +61,6 @@ export async function getStaticProps({ params }) {
 
 
 export default function BlogPost({ post }) {
-    const router = useRouter();
-
-    if(router.isFallback) {
-        return <Loader />
-    }
     return (
         <Format>
             <div className="px-5 py-8 md:px-20"> {/* Padding around the content */}
