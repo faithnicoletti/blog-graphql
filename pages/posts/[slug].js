@@ -1,7 +1,7 @@
 import {GraphQLClient, gql} from 'graphql-request';
 import Format from '../../layout/format';
 import { useRouter } from 'next/router'
-import { Loader } from '../../components';
+import { Loader } from '../../components/Loader';
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cll6qjzv804qm01um9wvpgn63/master"
@@ -70,13 +70,13 @@ export default function BlogPost({ post }) {
     }
     return (
         <Format>
-            <div className="px-5 py-8 md:px-20">
-                <div className="relative overflow-hidden h-[25vh]">
-                    <div className="h-1/4 w-full absolute top-0 left-0">
-                        <img src={post.coverPhoto.url} alt="" className="w-full h-full object-cover" />
+            <div className="px-5 py-8 md:px-20"> {/* Padding around the content */}
+                <div className="flex items-center justify-between mb-5">
+                    <div className="w-1/2 pr-5"> {/* Left column */}
+                        <p className="text-3xl md:text-5xl font-bold text-gray-600 hover:text-gray-800">{post.title}</p>
                     </div>
-                    <div className="text-center absolute w-full top-1/4">
-                        <p className="text-3xl md:text-5xl font-bold text-gray-600">{post.title}</p>
+                    <div className="w-1/2"> {/* Right column */}
+                        <img src={post.coverPhoto.url} alt="" className="mx-auto" width={600} height={600} />
                     </div>
                 </div>
                 <div className="text-gray-500 py-8">
@@ -86,7 +86,7 @@ export default function BlogPost({ post }) {
                     <img src={post.author.avatar.url} width={60} height={60} className="rounded-full mr-4" />
                     <h1 className="text-md font-bold text-gray-800">{post.author.name}</h1>
                 </div>
-                <div className="text-cleft text-orange-600 py-1">
+                <div className="text-center text-orange-600 py-3">
                     <p>Published {post.datePublished}</p>
                 </div>
             </div>
