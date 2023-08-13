@@ -1,5 +1,7 @@
 import {GraphQLClient, gql} from 'graphql-request';
 import Format from '../../layout/format';
+import { useRouter } from 'next/router'
+import { Loader } from '../../components';
 
 const graphcms = new GraphQLClient(
   "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cll6qjzv804qm01um9wvpgn63/master"
@@ -43,7 +45,7 @@ export async function getStaticPaths() {
     const {posts} = await graphcms.request(SLUGLIST);
     return{
         paths: posts.map((post) => ({ params: { slug: post.slug } })),
-        fallback: false, 
+        fallback: true, 
     };
 }
 
@@ -61,15 +63,20 @@ export async function getStaticProps({ params }) {
 
 
 export default function BlogPost({ post }) {
+    const router = useRouter();
+
+    if(router.isFallback) {
+        return <Loader />
+    }
     return (
         <Format>
             <div className="px-5 py-8 md:px-20">
-                <div className="flex items-center justify-between mb-5">
-                    <div className="w-1/2 pr-5">
-                        <p className="text-3xl md:text-5xl font-bold text-gray-600">{post.title}</p>
+                <div className="relative overflow-hidden h-[25vh]">
+                    <div className="h-1/4 w-full absolute top-0 left-0">
+                        <img src={post.coverPhoto.url} alt="" className="w-full h-full object-cover" />
                     </div>
-                    <div className="w-1/2">
-                        <img src={post.coverPhoto.url} alt="" className="mx-auto" width={400} height={400} />
+                    <div className="text-center absolute w-full top-1/4">
+                        <p className="text-3xl md:text-5xl font-bold text-gray-600">{post.title}</p>
                     </div>
                 </div>
                 <div className="text-gray-500 py-8">
@@ -86,3 +93,4 @@ export default function BlogPost({ post }) {
         </Format>
     );
 }
+
