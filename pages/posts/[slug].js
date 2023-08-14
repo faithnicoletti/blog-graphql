@@ -64,49 +64,45 @@ export async function getStaticProps({ params }) {
 
 
 export default function BlogPost({ post }) {
-    return (
-      <Format>
-        <br />
-             <div className="px-5 py-3 md:px-20">
+  return (
+    <Format>
+      <div className="px-5 py-3 md:px-20">
         <Link href="/" className="text-orange-300 text-sm hover:text-orange-600 cursor-pointer">
-            {'< Back to Main Page'}
+          {'< Back to Main Page'}
         </Link>
+        <br />
       </div>
-        <div className="px-5 py-8 md:px-20">
-          <div className="flex items-center justify-between mb-5">
-            <div className="w-1/2 pr-5">
-              <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
-              <br />
-              <p className="text-lg text-gray-500">{post.excerpt}</p>
-            </div>
-            <div className="image">
-              <img src={post.coverPhoto.url} alt="" className="mx-auto" width={800} height={800} />
-            </div>
-          </div>
-  
-          <hr className="my-8 border-t border-gray-300" />
-  <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
-          <div className="text-left text-orange-600 py-3">
-            <p>Published {post.datePublished}</p>
-          </div>
-          <div className="flex items-center py-3">
-            <img src={post.author.avatar.url} className="rounded-full mr-4" style={{ width: '40px', height: '40px' }} />
-            <h1 className="text-md font-bold text-orange-800">{post.author.name}</h1>
-            </div>
+      <div className="px-5 py-8 md:px-20">
+        {/* Display the image on top */}
+        <div className="mb-4">
+          <img src={post.coverPhoto.url} alt="" className="mx-auto" width={800} height={800} />
         </div>
-        <style jsx>{`
-          .content-indent {
-            text-indent: 20px;
-          }
-        `}</style>
-         <div className="px-5 py-3 md:px-20">
-        <Link href="/" className="text-orange-300 text-sm hover:text-orange-600 cursor-pointer">
-            {'< Back to Main Page'}
-        </Link>
-        <br />
+        <div className="text-center">
+          {/* Display the title */}
+          <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
+          <br />
+          {/* Display the excerpt */}
+          <p className="text-lg text-gray-500">{post.excerpt}</p>
+        </div>
+        
+        <hr className="my-8 border-t border-gray-300" />
+
+        {/* Display the content */}
+        <div className="content-indent">
+          <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
+        </div>
+        
+        {/* Display the author and date info */}
+        <div className="text-left text-orange-600 py-3">
+          <p>Published {post.datePublished}</p>
+        </div>
+        <div className="flex items-center py-3">
+          <img src={post.author.avatar.url} className="rounded-full mr-4" style={{ width: '40px', height: '40px' }} />
+          <h1 className="text-md font-bold text-orange-800">{post.author.name}</h1>
+        </div>
       </div>
-      </Format>
-    );
-  }
+    </Format>
+  );
+}
   
 
