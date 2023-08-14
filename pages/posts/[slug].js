@@ -83,11 +83,9 @@ export default function BlogPost({ post }) {
               <img src={post.coverPhoto.url} alt="" className="mx-auto" width={800} height={800} />
             </div>
           </div>
-    
+  
           <hr className="my-8 border-t border-gray-300" />
-          <div className="text-gray-500 py-5">
-  <div className="content-indent" dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
-      </div>
+  <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
           <div className="text-left text-orange-600 py-3">
             <p>Published {post.datePublished}</p>
           </div>
