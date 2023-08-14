@@ -25,14 +25,14 @@ img {
   cursor: pointer; 
 }
 
-.info {
+/* .info {
   width: 100%;
   padding-top: 20px;
 
   @media (min-width: 766px) and (max-width: 840px) {
       padding-left: 20px;
   }
-}
+} */
 
 .excerpt {
   @media (min-width: 766px) and (max-width: 840px) {
