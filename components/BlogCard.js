@@ -26,7 +26,7 @@ export default function BlogPost({
                         <p className="tex-2xl text-sm text-gray-400">{excerpt}</p>
                     </div>
                     <br />
-                    <p className="text-gray-500 py-3">Author: {author.name} </p>
+                    <p className="text-orange-800 py-3"><span className="text-gray-600">By</span> {author.name} </p>
                 </div>
             </div>
         </div>
