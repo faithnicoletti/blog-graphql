@@ -10,8 +10,9 @@ const QUERY = gql`
         post(where: {slug: $slug}){
            id 
            title
+           excerpt
            slug
-           datePublished  # Remove the comma here
+           datePublished
            author{
             id 
             name 
@@ -62,28 +63,39 @@ export async function getStaticProps({ params }) {
 
 export default function BlogPost({ post }) {
     return (
-        <Format>
-            <div className="px-5 py-8 md:px-20"> {/* Padding around the content */}
-                <div className="flex items-center justify-between mb-5">
-                    <div className="w-1/2 pr-5"> {/* Left column */}
-                        <p className="text-3xl md:text-5xl font-bold text-gray-600 hover:text-gray-800">{post.title}</p>
-                    </div>
-                    <div className="w-1/2"> {/* Right column */}
-                        <img src={post.coverPhoto.url} alt="" className="mx-auto" width={600} height={600} />
-                    </div>
-                </div>
-                <div className="text-gray-500 py-8">
-                    <p dangerouslySetInnerHTML={{ __html: post.content.html }}></p>
-                </div>
-                <div className="flex items-center py-5">
-                    <img src={post.author.avatar.url} width={60} height={60} className="rounded-full mr-4" />
-                    <h1 className="text-md font-bold text-gray-800">{post.author.name}</h1>
-                </div>
-                <div className="text-center text-orange-600 py-3">
-                    <p>Published {post.datePublished}</p>
-                </div>
+      <Format>
+        <br />
+        <div className="px-5 py-8 md:px-20">
+          <div className="flex items-center justify-between mb-5">
+            <div className="w-1/2 pr-5">
+              <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
+              <br />
+              <p className="text-lg text-gray-500">{post.excerpt}</p>
             </div>
-        </Format>
+            <div className=" image w-1/2">
+              <img src={post.coverPhoto.url} alt="" className="mx-auto" width={600} height={600} />
+            </div>
+          </div>
+    
+          <hr className="my-8 border-t border-gray-300" />
+          <div className="text-gray-500 py-5">
+            <div className="content-indent" dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
+          </div>
+          <div className="text-left text-orange-600 py-3">
+            <p>Published {post.datePublished}</p>
+          </div>
+          <div className="flex items-center py-3">
+            <img src={post.author.avatar.url} className="rounded-full mr-4" style={{ width: '40px', height: '40px' }} />
+            <h1 className="text-md font-bold text-gray-800">{post.author.name}</h1>
+            </div>
+        </div>
+        <style jsx>{`
+          .content-indent {
+            text-indent: 20px;
+          }
+        `}</style>
+      </Format>
     );
-}
+  }
+  
 

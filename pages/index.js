@@ -13,6 +13,7 @@ const QUERY = gql`
     posts {
       id, 
       title,
+      excerpt,
       datePublished, 
       slug, 
       content {
@@ -51,6 +52,7 @@ export default function Home ({ posts }) {
           title={post.title} 
           author={post.author} 
           coverPhoto={post.coverPhoto}
+          excerpt={post.excerpt}
           key={post.id}
           datePublished={post.datePublished}
           slug={post.slug}

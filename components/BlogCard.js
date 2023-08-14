@@ -5,6 +5,7 @@ export default function BlogPost({
     title, 
     author,
     coverPhoto,
+    excerpt,
     datePublished,
     slug
 }) {
@@ -19,9 +20,13 @@ export default function BlogPost({
                         <p href={'/posts/' + slug} className="text-orange-600">Published {datePublished}</p>
                     </div>
                     <div className="title">
-                        <Link href={'/posts/' + slug} className="tex-3xl md:text-5xl font-bold text-gray-600 hover:text-gray-800">{title}</Link>
+                        <Link href={'/posts/' + slug} className="tex-2xl md:text-5xl font-bold text-gray-600 hover:text-gray-800">{title}</Link>
                     </div>
-                    <p className="text-gray-500 py-3">{}</p>
+                    <div className="excerpt">
+                        <p className="tex-2xl text-sm text-gray-400">{excerpt}</p>
+                    </div>
+                    <br />
+                    <p className="text-gray-500 py-3">Author: {author.name} </p>
                 </div>
             </div>
         </div>
