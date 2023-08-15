@@ -81,16 +81,20 @@ export default function BlogPost({ post }) {
           <p className="text-lg text-gray-500">{post.excerpt}</p>
         </div>
         <hr className="my-8 border-t border-gray-300" />
-        <div className="content">
+        <div className="content text-gray-800">
           <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
         </div>
         <div className="text-left text-orange-600 py-3">
           <p>Published {post.datePublished}</p>
         </div>
-        <div className="flex items-center py-3">
+        <div className="flex items-center py-2">
           <img src={post.author.avatar.url} className="rounded-full mr-4" style={{ width: '40px', height: '40px' }} />
           <h1 className="text-md font-bold text-orange-800">{post.author.name}</h1>
         </div>
+        < br/>
+          <Link href="/" className="text-orange-300 text-sm hover:text-orange-600 cursor-pointer">
+          {'< Back to Main Page'}
+        </Link>
       </div>
     </Format>
   );
