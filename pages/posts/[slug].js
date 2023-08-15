@@ -73,7 +73,7 @@ export default function BlogPost({ post }) {
       </div>
       <div className="px-5 py-8 md:px-20">
         <div className="mb-4">
-          <img src={post.coverPhoto.url} alt="" className="mx-auto" width={800} height={800} />
+          <img src={post.coverPhoto.url} alt="" className="mx-auto w-100 h-64" />
         </div>
         <div className="text-center">
           <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
@@ -84,15 +84,16 @@ export default function BlogPost({ post }) {
         <div className="content text-gray-800">
           <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
         </div>
-        <div className="text-left text-orange-600 py-3">
+        <br />
+        <div className="text-left text-orange-800 py-3 flex justify-end">
           <p>Published {post.datePublished}</p>
         </div>
-        <div className="flex items-center py-2">
+        <div className="flex items-center py-2 flex justify-end">
           <img src={post.author.avatar.url} className="rounded-full mr-4" style={{ width: '40px', height: '40px' }} />
           <h1 className="text-md font-bold text-orange-800">{post.author.name}</h1>
         </div>
         < br/>
-          <Link href="/" className="text-orange-300 text-sm hover:text-orange-600 cursor-pointer">
+          <Link href="/" className="text-orange-600 text-sm hover:text-orange-800 cursor-pointer flex justify-end">
           {'< Back to Main Page'}
         </Link>
       </div>

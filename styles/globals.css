@@ -55,6 +55,23 @@ a {
   }
 }
 
+.content h4 {
+  font-weight: bold;
+  font-size:larger; /* Make the headers bold */
+  margin-top: 1em; /* Add spacing above the headers */
+  margin-bottom: 0.5em; /* Add spacing below the headers */
+}
+
+.content p {
+  margin-bottom: 1em;
+}
+
+.content {
+  text-indent: 30px;
+  margin-bottom: 1em;  
+}
+
+
 .input-text{
   @apply mt-1 block w-60 px-3 py-2 bg-white border border-slate-300
   rounded-full text-sm shadow placeholder-slate-500;
