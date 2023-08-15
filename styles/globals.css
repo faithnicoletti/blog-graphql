@@ -56,6 +56,7 @@ a {
 }
 
 .content h4 {
+  color: black;
   font-weight: bold;
   font-size:larger; /* Make the headers bold */
   margin-top: 1em; /* Add spacing above the headers */
