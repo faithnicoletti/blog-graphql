@@ -25,14 +25,14 @@ img {
   cursor: pointer; 
 }
 
-/* .info {
+.info {
   width: 100%;
   padding-top: 20px;
 
   @media (min-width: 766px) and (max-width: 840px) {
       padding-left: 20px;
   }
-} */
+}
 
 .excerpt {
   @media (min-width: 766px) and (max-width: 840px) {
@@ -49,18 +49,18 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 .content h4 {
   color: black;
   font-weight: bold;
-  font-size:larger; /* Make the headers bold */
-  margin-top: 1em; /* Add spacing above the headers */
-  margin-bottom: 0.5em; /* Add spacing below the headers */
+  font-size:larger; 
+  margin-top: 1em; 
+  margin-bottom: 0.5em; 
 }
 
 .content p {
