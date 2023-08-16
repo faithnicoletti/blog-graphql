@@ -73,7 +73,7 @@ export default function BlogPost({ post }) {
       </div>
       <div className="px-5 py-8 md:px-20">
         <div className="mb-4">
-          <img src={post.coverPhoto.url} alt="" className="mx-auto w-100 h-64" />
+          <img src={post.coverPhoto.url} alt="" className="mx-auto w-90 h-80" />
         </div>
         <div className="text-center">
           <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
