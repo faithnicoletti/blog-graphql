@@ -17,16 +17,17 @@ export default function BlogPost({
                 </div>
                 <div className="info">
                     <div className="date">
-                        <p href={'/posts/' + slug} className="text-orange-600">Published {datePublished}</p>
+                        <p href={'/posts/' + slug} className="text-orange-800">Published {datePublished}</p>
                     </div>
                     <div className="title">
-                        <Link href={'/posts/' + slug} className="tex-2xl md:text-5xl font-bold text-gray-600 hover:text-gray-800">{title}</Link>
+                        <Link href={'/posts/' + slug} className="text-2xl md:text-5xl font-bold text-gray-600 hover:text-gray-800 pt-50">{title}</Link>
                     </div>
+                    <br />
                     <div className="excerpt">
                         <p className="tex-2xl text-sm text-gray-400">{excerpt}</p>
                     </div>
-                    <br />
-                    <p className="text-orange-800 py-3"><span className="text-gray-600">By</span> {author.name} </p>
+
+                    <p className="text-orange-800 py-3"><span className="text-orange-800">By</span> {author.name} </p>
                 </div>
             </div>
         </div>
