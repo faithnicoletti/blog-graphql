@@ -78,10 +78,10 @@ export default function BlogPost({ post }) {
         <div className="text-center">
           <div className="text-3xl md:text-5xl font-bold text-gray-800 mb-2">{post.title}</div>
           <br />
-          <p className="text-lg text-gray-500">{post.excerpt}</p>
+          <p className="text-lg text-gray-600">{post.excerpt}</p>
         </div>
         <hr className="my-8 border-t border-gray-300" />
-        <div className="content text-gray-800">
+        <div className="content text-gray-600">
           <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
         </div>
         <br />
@@ -93,7 +93,7 @@ export default function BlogPost({ post }) {
           <h1 className="text-md font-bold text-orange-800">{post.author.name}</h1>
         </div>
         < br/>
-          <Link href="/" className="text-orange-600 text-sm hover:text-orange-800 cursor-pointer flex justify-end">
+          <Link href="/" className="text-orange-400 text-sm hover:text-orange-800 cursor-pointer flex justify-end">
           {'< Back to Main Page'}
         </Link>
       </div>
