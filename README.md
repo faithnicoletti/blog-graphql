@@ -40,3 +40,7 @@ Additional CSS improvements are needed to create a more user-friendly and visual
 ## Future Enhancements
 Complete the comments section to allow users to engage in discussions.
 Further refine the app's CSS for a polished and attractive user experience.
+<<<<<<< HEAD
+=======
+
+>>>>>>> b58ccfd2a63d97ad2e7f576ea4f7ed09f64d447a
